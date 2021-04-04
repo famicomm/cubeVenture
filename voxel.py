@@ -1,7 +1,8 @@
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 
-
+texture = 'assets/texture/cobblestone.png'
+brick = 'assets/texture/brick.png'
 
 
 class Voxel(Button):
@@ -9,11 +10,11 @@ class Voxel(Button):
         super().__init__(
         parent = scene,
         position = position,
-        model = 'assets/models/block.obj',
+        model = 'cube',
         origin_y = 0.5,
-        texture = 'assets/texture/grass.png',
+        texture = texture,
         color = color.color(0,0,random.uniform(0.9,1)),
-        scale = 0.5)
+        scale = 1)
 
     def input(self, key):
         if self.hovered:

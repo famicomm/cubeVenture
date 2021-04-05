@@ -63,7 +63,8 @@ app = Ursina()
 sky = Sky()
 for z in range(32):
     for x in range(32):
-        voxel = Voxel(position = (x,0,z))
+        for y in range(2):
+            voxel = Voxel(position = (x,y,z))
 
 player = FirstPersonController()
 app.run()

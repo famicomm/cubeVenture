@@ -1,12 +1,11 @@
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
+from direct.stdpy import thread
 
 window.title = 'VoxelTest'
 window.borderless = False
 
 block_pick = 1
-
-
 
 def update():
     global block_pick
@@ -64,7 +63,8 @@ app = Ursina()
 sky = Sky()
 for z in range(20):
     for x in range(20):
-        voxel = Voxel(position = (x,0,z))
+        for y in range(2):
+            voxel = Voxel(position = (x,y,z))
 
 player = FirstPersonController()
 app.run()

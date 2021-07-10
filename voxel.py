@@ -2,7 +2,7 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from numpy import floor
 from perlin_noise import PerlinNoise
-
+import random
 app = Ursina()
 
 #Load Textures
@@ -14,6 +14,7 @@ brick_block = load_texture('assets/texture/bricks.png')
 
 #Audio
 music = Audio('assets/audio/calm1.ogg',loop = True, autoplay = True)
+foot = Audio ('assets/audio/footstep.ogg',loop = False, autoplay = False)
 #End Audio
 
 #Config
@@ -36,15 +37,17 @@ def input(key):
     if key == 'escape':
         quit()
 
+
 def update():
     pass
 
+
 terrain = Entity(model=None,collider=None)
-noise = PerlinNoise(octaves=2,seed=2021)
-amp = 5
+noise = PerlinNoise(octaves=2,seed=random.randint(0,696969))
+amp = random.randint(2,25)
 freq = 69
 
-terrainWidth = 32
+terrainWidth = 50
 for i in range(terrainWidth*terrainWidth):
     voxel = Entity(model='cube',color=color.green)
     voxel.x = floor(i/terrainWidth)

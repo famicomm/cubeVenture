@@ -1,10 +1,11 @@
 from ursina import *
 from numpy import floor
 from perlin_noise import PerlinNoise
+from ursina.prefabs.first_person_controller import FirstPersonController
 import random
 app = Ursina()
 
-
+camera.aspect_ratio = 1.778
 
 #Load Textures
 grass_block = load_texture('assets/texture/grass.png')
@@ -73,6 +74,6 @@ application.development_mode = False
 window.borderless = False
 window.show_ursina_splash = True
 window.vsync = True
-EditorCamera()
+guy = FirstPersonController()
 app.run()
 #End Config
